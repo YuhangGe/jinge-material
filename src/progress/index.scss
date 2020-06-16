@@ -47,7 +47,7 @@
       @include md-progress-bar-indeterminate(primary);
 
       &.md-accent {
-        @include md-progress-bar-indeterminate(accent);
+        @include md-progress-bar-indeterminate(secondary);
       }
     }
 
@@ -91,7 +91,7 @@
     @include md-progress-bar-indeterminate(primary);
 
     &.md-accent {
-      @include md-progress-bar-indeterminate(accent);
+      @include md-progress-bar-indeterminate(secondary);
     }
 
     .md-progress-bar-track {

@@ -14,6 +14,7 @@ export class Drawer extends Component {
   constructor(attrs) {
     super(attrs);
     this.active = attrs.active;
+    this.closeOnOutsideClick = attrs.closeOnOutsideClick !== false;
     this._fixed = attrs.fixed;
     this._right = attrs.right;
     this._pushMode = attrs._pushMode;
@@ -24,15 +25,22 @@ export class Drawer extends Component {
     this.__notify('update.active', false);
     this.__notify('closed');
   }
+
+  onclick() {
+    if (this.closeOnOutsideClick) {
+      this.close();
+    }
+  }
 }
 
 export class DrawerContainer extends Component {
   static get template() {
     return `
+<!-- import { Drawer } from '.' -->
 <div class="md-drawer-container\${className ? ' ' + className : ''}\${active ? ' md-active' : ''}">
-  <md-drawer e:_pushMode="_pushMode" e:active="active" e:right="_right" on:update.active="onUpdateActive">
+  <Drawer e:_pushMode="_pushMode" e:active="active" e:right="_right" on:update.active="onUpdateActive">
     <_slot slot-use:drawer/>
-  </md-drawer>
+  </Drawer>
   <div style="margin-\${_right ? 'right' : 'left'}: \${active ? mainMargin : 0}px;" class="md-drawer-main">
     <_slot slot-use:main/>
   </div>

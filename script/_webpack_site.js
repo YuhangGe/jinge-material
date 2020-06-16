@@ -32,8 +32,10 @@ const jingeMaterialSrcAlias = (function() {
 module.exports = function getWebpackBuildMainConfig(isProdMode, noCompress) {
   const plugins = [new JingeWebpackPlugin({
     compress: isProdMode && !noCompress,
-    multiChunk: true,
-    writeChunkInfo: 'chunk.json',
+    chunk: {
+      multiple: true,
+      writeInfo: 'chunk.json'
+    },
     style: {
       extract: true
     },
@@ -48,6 +50,7 @@ module.exports = function getWebpackBuildMainConfig(isProdMode, noCompress) {
     optimization: {
       minimizer: [new TerserPlugin({
         terserOptions: {
+          ecma: 2020,
           output: {
             comments: false
           }

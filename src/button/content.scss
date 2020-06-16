@@ -9,8 +9,11 @@
 
   > .md-icon:not(:only-child),
   > .md-spinner:not(:only-child) {
-    font-size: 1.2em;
     margin-right: 6px;
+  }
+
+  > .md-icon:not(:only-child) {
+    font-size: 1.2em;
   }
 
   > .md-icon:only-child,

@@ -13,6 +13,7 @@ import {
   createPopper
 } from '@popperjs/core/lib/popper-lite';
 import offsetModifier from '@popperjs/core/lib/modifiers/offset';
+import flipModifier from '@popperjs/core/lib/modifiers/flip';
 import preventOverflowModifier from '@popperjs/core/lib/modifiers/preventOverflow';
 import {
   mergePopperOpts,
@@ -256,12 +257,13 @@ export class Popover extends Component {
     return mergePopperOpts({
       placement: this.placement,
       modifiers: [
-        preventOverflowModifier,
         Object.assign({
           options: {
             offset
           }
-        }, offsetModifier)
+        }, offsetModifier),
+        preventOverflowModifier,
+        flipModifier
       ],
       onFirstUpdate: this._onPopperCreated.bind(this)
     }, this._popperOptions);

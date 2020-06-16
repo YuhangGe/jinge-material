@@ -7,7 +7,7 @@ import {
 export class DialogContent extends Component {
   static get template() {
     return `
-<div class="md-dialog-content\${className ? ' ' + className : ''}">
+<div class="md-dialog-content md-body-2\${className ? ' ' + className : ''}">
   <_slot />
 </div>`;
   }

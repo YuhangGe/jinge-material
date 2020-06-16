@@ -78,14 +78,14 @@ export function showConfirmOrPrompt(Clazz, opts, confirmCallback, cancelCallback
     __portalDisabled: true,
     active: false,
     title: opts.title,
+    content: opts.content,
     confirmSpinner: false,
     confirmText: opts.confirmText,
     cancelText: opts.cancelText
   };
-  if (isConfirm) {
-    attrs.content = opts.content;
-  } else {
+  if (!isConfirm) {
     attrs.errorTip = opts.errorTip;
+    attrs.cancelable = opts.cancelable;
     attrs.inputPlaceholder = opts.inputPlaceholder;
     attrs.inputRequired = opts.inputRequired;
     attrs.inputMaxlength = opts.inputMaxlength;
@@ -113,17 +113,24 @@ export function showConfirmOrPrompt(Clazz, opts, confirmCallback, cancelCallback
       return el.__destroy();
     }
     const result = confirmCallback(isConfirm ? null : el.inputValue);
-    if (result === false || isString(result)) {
+    const isPromise = isObject(result) && isFunction(result.then);
+    const err = isString(result) ? result : (
+      isObject(result) && !isPromise ? result.message || result.toString() : null
+    );
+    if (result === false || err) {
       if (!isConfirm) {
-        el.errorTip = result;
+        el.errorTip = err;
       }
       return;
-    } else if (isObject(result) && isFunction(result.then)) {
+    } else if (isPromise) {
       el.confirmSpinner = true;
       result.then(rr => {
-        if (rr === false || isString(rr)) {
+        const rrerr = isString(rr) ? rr : (
+          isObject(rr) ? rr.message || rr.toString() : null
+        );
+        if (rr === false || rrerr) {
           if (!isConfirm) {
-            el.errorTip = rr;
+            el.errorTip = rrerr;
           }
           el.confirmSpinner = false;
         } else {
@@ -132,7 +139,7 @@ export function showConfirmOrPrompt(Clazz, opts, confirmCallback, cancelCallback
       }, err => {
         el.confirmSpinner = false;
         if (!isConfirm) {
-          el.errorTip = err.toString();
+          el.errorTip = err.message || err.toString();
         }
       });
       return;

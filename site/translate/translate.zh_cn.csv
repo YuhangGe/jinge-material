@@ -621,6 +621,7 @@ site/app/pages/components/popconfirm/api.js,名称
 site/app/pages/components/popconfirm/api.js,描述
 site/app/pages/components/popconfirm/api.js,默认值
 site/app/pages/components/popconfirm/api.js,文字提示的内容
+site/app/pages/components/popconfirm/api.js,补充说明的描述性文字
 site/app/pages/components/popconfirm/api.js,如果指定该属性，会显示错误提示。
 site/app/pages/components/popconfirm/api.js,点击确认按钮后是否隐藏气泡。
 site/app/pages/components/popconfirm/api.js,是否进入正在确认的加载状态
@@ -632,6 +633,7 @@ site/app/pages/components/popconfirm/examples/simple.html,简单的 Popconfirm�
 site/app/pages/components/popconfirm/examples/simple.html,删除
 site/app/pages/components/popconfirm/examples/simple.html,您确认要删除 ${some.name} 吗？
 site/app/pages/components/popconfirm/examples/simple.html,配合服务器端 API 接口：
+site/app/pages/components/popconfirm/examples/simple.html,删除后不可撤销，请谨慎操作
 site/app/pages/components/popconfirm/examples/simple.js,未命名
 site/app/pages/components/popconfirm/examples/simple.js,删除成功！
 site/app/pages/components/popconfirm/index.html,目标元素的操作需要用户进一步的确认时，在目标元素附近弹出浮层提示，询问用户。

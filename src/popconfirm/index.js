@@ -17,6 +17,7 @@ export class Popconfirm extends Component {
   constructor(attrs) {
     super(attrs);
     this.title = attrs.title || '';
+    this.desc = attrs.description || '';
     this.error = attrs.errorTip;
     this.className = 'md-popconfirm' + (attrs.class ? ' ' + attrs.class : '');
     this.placement = attrs.placement || 'top-end';

@@ -140,7 +140,7 @@ export class Tabs extends Component {
 
   _update(notify = true) {
     if (!isNumber(this._activeTab)) {
-      this._activeTab = this.items.findIndex(it => it.id === this._activeStep);
+      this._activeTab = this.items.findIndex(it => it.id === this._activeTab);
     }
     this._activeEl = this.__getRef('nav').querySelector('.md-tab-nav-button.md-active');
     this._setActive(this._activeTab, notify);

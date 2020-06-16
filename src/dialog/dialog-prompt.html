@@ -19,6 +19,9 @@
   <DialogTitle>${ title }</DialogTitle>
   </if>
   <DialogContent class="md-dialog-prompt-content">
+    <if e:expect="content">
+    <p><bind-html e:content="content"/></p>
+    </if>
     <Field e:class="errorTip || requiredTip ? 'md-invalid' : ''">
       <Input
         e:value="inputValue"
@@ -35,12 +38,14 @@
     </Field>
   </DialogContent>
   <DialogActions>
+    <if e:expect="cancelable">
     <Button
-     e:disabled="confirmSpinner"     
-     on:click="onCancel"
+      e:disabled="confirmSpinner"     
+      on:click="onCancel"
     >
       <span>${ cancelText || locale.Cancel }</span>
     </Button>
+    </if>
     <Button
       class="md-primary"
       e:disabled="confirmSpinner || (inputRequired && !inputValue)"

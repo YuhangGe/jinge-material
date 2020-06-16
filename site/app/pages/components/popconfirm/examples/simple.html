@@ -20,6 +20,7 @@
       on:update.active="isConfirmShown = args[0]"
       on:confirm="submitDelete"
       _t:title="您确认要删除 ${some.name} 吗？"
+      _t:description="删除后不可撤销，请谨慎操作"
       e:errorTip="errorTip"
     >
       <md-button class="md-primary">

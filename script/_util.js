@@ -41,6 +41,12 @@ function __r(p) {
   return path.resolve(__dirname, `../${p}`);
 }
 
+function addAsset(assets, name, source) {
+  assets[name] = {
+    source: () => source, map: () => null
+  };
+}
+
 function rmCommon(cks) {
   Object.keys(cks).forEach(cn => {
     if (cn.indexOf('~') >= 0) delete cks[cn];
@@ -85,20 +91,23 @@ function generateLoader(outputFs = fs, compress = false) {
   return outfile;
 }
 
-function generateIndex(loaderFile) {
+function generateIndex(loaderFile, compress) {
   let cnt = fs.readFileSync(__r('site/index.html'), 'utf-8');
   cnt = cnt.replace('<base href="/"/>', `<base href="${BASE_HREF}"/>`);
   cnt = cnt.replace('<script src="loader.js"></script>', `<script src="${loaderFile}"></script>`);
-  cnt = htmlMinify(cnt, {
-    collapseWhitespace: true,
-    minifyCSS: true,
-    removeAttributeQuotes: true
-  });
+  if (compress) {
+    cnt = htmlMinify(cnt, {
+      collapseWhitespace: true,
+      minifyCSS: true,
+      removeAttributeQuotes: true
+    });
+  }
   fs.writeFileSync(__r('docs/index.html'), cnt);
 }
 
 module.exports = {
   __r,
+  addAsset,
   BASE_HREF,
   generateLoader,
   generateIndex,

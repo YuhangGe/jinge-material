@@ -34,15 +34,9 @@ const jingeMaterialSrcAlias = (function() {
 module.exports = function getWebpackBuildMainConfig(isProdMode, noCompress) {
   const plugins = [new JingeWebpackPlugin({
     compress: isProdMode && !noCompress,
-    // multiChunk: true,
-    // writeChunkInfo: 'chunk.json',
     style: {
       extract: true
     }
-    // i18n: {
-    //   translateDir: __r('site/translate'),
-    //   defaultLocale: 'zh_cn'
-    // }
   }), new webpack.BannerPlugin(`A material design ui library implemented with jinge mvvm framework for https://jinge.design
 @version: ${pkg.version}
 @copyright: 2020 ${pkg.author}
@@ -55,6 +49,7 @@ module.exports = function getWebpackBuildMainConfig(isProdMode, noCompress) {
       minimize: isProdMode && !noCompress,
       minimizer: [new TerserPlugin({
         terserOptions: {
+          ecma: 2020,
           output: {
             comments: /@license/i
           }

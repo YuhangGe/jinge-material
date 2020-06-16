@@ -21,7 +21,10 @@
   <_slot slot-pass:content>
     <_slot slot-use:content>
     <div class="md-popover-content">
-      <div class="title">${title}</div>
+      <div class="md-title">${title}</div>
+      <if e:expect="desc">
+      <div class="desc">${desc}</div>
+      </if>
       <if e:expect="error">
       <div class="error">${error}</div>
       </if>

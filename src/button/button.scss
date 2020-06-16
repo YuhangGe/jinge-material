@@ -56,7 +56,7 @@ $md-button-fab-size-mini: $md-button-icon-size;
   &[disabled] {
     cursor: default;
     pointer-events: none;
-    color: var(--md-on-surface-disabled);
+    opacity: 0.38;
   }
 
   &.md-dense {
@@ -110,10 +110,10 @@ $md-button-fab-size-mini: $md-button-icon-size;
     color: var(--md-on-secondary);
   }
 
-  &:not(.md-primary):not(.md-accent)[disabled] {
-    background-color: var(--md-outline);
-    color: var(--md-on-surface-disabled);
-  }
+  // &:not(.md-primary):not(.md-accent)[disabled] {
+  //   background-color: var(--md-outline);
+  //   color: var(--md-on-surface-disabled);
+  // }
 }
 
 .md-button.md-icon-button,
@@ -168,9 +168,9 @@ $md-button-fab-size-mini: $md-button-icon-size;
     transition-duration: 1.2s;
   }
 
-  &[disabled] {
-    opacity: 0.38;
-  }
+  // &[disabled] {
+  //   opacity: 0.38;
+  // }
 }
 
 .md-button.md-fab {
@@ -249,9 +249,9 @@ $md-button-fab-size-mini: $md-button-icon-size;
       background-color: #fff;
     }
 
-    &.md-disabled,
-    &[disabled] {
-      opacity: 0.38;
-    }
+    // &.md-disabled,
+    // &[disabled] {
+    //   opacity: 0.38;
+    // }
   }
 }

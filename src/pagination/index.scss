@@ -62,11 +62,11 @@
     .md-field-container {
       align-items: center;
       position: relative;
+      padding-right: 8px;
     }
 
     .md-input {
       height: 22px;
-      width: 100%;
       text-align: center;
     }
 
@@ -78,10 +78,6 @@
 
     &.options {
       margin-right: 12px;
-
-      .md-input {
-        margin-right: 12px;
-      }
     }
   }
 

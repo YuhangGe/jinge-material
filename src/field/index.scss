@@ -38,7 +38,8 @@ $md-input-height: 32px;
 
   > .md-field-container {
     display: flex;
-    flex: 1;
+    width: 0;
+    flex-grow: 1;
 
     > .md-icon {
       margin: 4px auto;
@@ -89,7 +90,8 @@ $md-input-height: 32px;
     height: $md-input-height;
     padding: 0;
     display: block;
-    flex: 1;
+    flex-grow: 1;
+    width: 0;
     border: none;
     background: none;
     transition: $md-transition-stand;
@@ -107,6 +109,10 @@ $md-input-height: 32px;
 
     &:focus {
       outline: none;
+    }
+
+    &:invalid {
+      box-shadow: none;
     }
 
     &::-webkit-input-placeholder {
@@ -192,8 +198,14 @@ $md-input-height: 32px;
 
       .md-input,
       .md-textarea,
-      .md-file {
+      .md-file,
+      .md-field-container {
         margin-left: 12px;
+      }
+
+      .md-error,
+      .md-helper-text {
+        margin-left: 36px;
       }
     }
   }

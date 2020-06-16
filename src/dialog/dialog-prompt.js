@@ -28,7 +28,7 @@ export class DialogPrompt extends Component {
    * 允许用户重试），api 请求过程中 Confirm 按钮不能点击且有 spinner 状态。
    *
    * 针对这种情况，confirmCallback 允许返回 `false` 来阻止对话框关闭；
-   * 或者返回一个字符串来阻止对话框关闭的同时展示错误信息；
+   * 或者返回一个字符串或 Error 对象来阻止对话框关闭的同时展示错误信息；
    * 还允许直接返回一个 Promise 对象，对话框会等待该 Promise，直到其 resolve 返回的数据
    * 不是 `false` 或字符串才关闭对话框。
    *
@@ -42,6 +42,7 @@ export class DialogPrompt extends Component {
     super(attrs);
     this.active = attrs.active;
     this.title = attrs.title;
+    this.content = attrs.content;
     this.errorTip = attrs.errorTip;
     this.inputValue = attrs.defaultValue;
     this.inputPlaceholder = attrs.inputPlaceholder;
@@ -50,6 +51,7 @@ export class DialogPrompt extends Component {
     this.confirmSpinner = attrs.confirmSpinner;
     this.confirmText = attrs.confirmText;
     this.cancelText = attrs.cancelText;
+    this.cancelable = attrs.cancelable !== false;
 
     this.requiredTip = null;
     this._localeChangeHandler = this._onLocaleChange.bind(this);

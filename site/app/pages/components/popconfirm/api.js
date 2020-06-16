@@ -13,6 +13,11 @@ export default () => vm({
         defaults: 'an empty string'
       },
       {
+        name: 'description',
+        description: _t('补充说明的描述性文字'),
+        defaults: 'null'
+      },
+      {
         name: 'errorTip',
         description: _t('如果指定该属性，会显示错误提示。'),
         defaults: 'null'

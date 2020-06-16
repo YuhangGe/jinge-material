@@ -33,10 +33,6 @@
       left: 0;
     }
   }
-
-  .md-button {
-    margin: 0.5em 0 0;
-  }
 }
 
 .md-empty-state-enter {
@@ -54,11 +50,15 @@
   transition: opacity 0.4s $md-transition-default-timing;
   will-change: opacity;
 
-  .md-icon {
+  > .md-button {
+    margin: 0.5em 0 0;
+  }
+
+  > .md-icon {
     width: 160px;
     height: 160px;
     margin: 0;
-    color: rgba(0, 0, 0, 0.24);
+    color: var(--md-on-surface-medium);
   }
 }
 

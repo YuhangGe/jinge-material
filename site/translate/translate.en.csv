@@ -621,6 +621,7 @@ site/app/pages/components/popconfirm/api.js,名称,Name
 site/app/pages/components/popconfirm/api.js,描述,Description
 site/app/pages/components/popconfirm/api.js,默认值,Default
 site/app/pages/components/popconfirm/api.js,文字提示的内容,Content of popconfirm.
+site/app/pages/components/popconfirm/api.js,补充说明的描述性文字,supplementary descriptive text
 site/app/pages/components/popconfirm/api.js,如果指定该属性，会显示错误提示。,"If this attribute is specified, an error message is displayed."
 site/app/pages/components/popconfirm/api.js,点击确认按钮后是否隐藏气泡。,Whether to hide the Popconfirm after clicking the confirm button.
 site/app/pages/components/popconfirm/api.js,是否进入正在确认的加载状态,Whether to enter the loading state being confirmed.
@@ -632,6 +633,7 @@ site/app/pages/components/popconfirm/examples/simple.html,简单的 Popconfirm�
 site/app/pages/components/popconfirm/examples/simple.html,删除,Delete
 site/app/pages/components/popconfirm/examples/simple.html,您确认要删除 ${some.name} 吗？,Are you sure to delete ${some.name}?
 site/app/pages/components/popconfirm/examples/simple.html,配合服务器端 API 接口：,With server-side API interface:
+site/app/pages/components/popconfirm/examples/simple.html,删除后不可撤销，请谨慎操作,"Cannot be undone after deletion, please proceed with caution"
 site/app/pages/components/popconfirm/examples/simple.js,未命名,Untitled
 site/app/pages/components/popconfirm/examples/simple.js,删除成功！,Delete successful!
 site/app/pages/components/popconfirm/index.html,目标元素的操作需要用户进一步的确认时，在目标元素附近弹出浮层提示，询问用户。,"When the operation of the target element requires further confirmation by the user, a floating layer prompt pops up near the target element and asks the user."

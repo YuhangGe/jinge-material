@@ -31,9 +31,10 @@ export class Snackbar extends Component {
       __portalDisabled: true,
       active: false
     }, options || {})));
-    if (options.onClose) {
-      el.__on('closed', options.onClose);
-    }
+    el.__on('closed', function() {
+      options.onClose && options.onClose();
+      el.__destroy();
+    });
     el.__renderToDOM(document.body, false);
     setImmediate(() => {
       el.active = true;
@@ -82,7 +83,13 @@ export class Snackbar extends Component {
 
   _onClose() {
     this.isShown = false;
-    this.__notify('update.active', false);
-    this.__notify('closed');
+    /**
+     * css 动画有 400ms 持续时间。等待动画结束才通知 closed。
+     * 这个写法硬编码了 400ms，很丑，需要进一步优化。
+     */
+    setTimeout(() => {
+      this.__notify('update.active', false);
+      this.__notify('closed');
+    }, 400);
   }
 }
